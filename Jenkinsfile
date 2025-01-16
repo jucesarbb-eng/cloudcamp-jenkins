@@ -1,6 +1,8 @@
 node("linux"){
-    stage("Hello World"){
-        sh "echo 'hello world'"
-        echo "hello world"
+    stage("Checkout"){
+        checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/jucesarbb-eng/cloudcamp-jenkins']])
+    }
+    stage("Check files"){
+        sh "ls -la"
     }
 }
